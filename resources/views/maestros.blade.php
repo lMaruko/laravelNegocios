@@ -36,13 +36,25 @@
     <div class="container" style="padding-top: 20px">
         <div class="row">
             <div class="col col-3">
-                <H1 style="padding-top: 10px">Tabla Carreras</H1>
+                <H1 style="padding-top: 10px">Tabla Maestros</H1>
                 <div style="padding-bottom: 30px">
-                    <form method="POST" action="{{ route('carrera.store') }}">
+                    <form method="POST" action="{{ route('maestros.store') }}">
                         @csrf
                         <div class="mb-3">
-                            <label for="" class="form-label">Carrera</label>
-                            <input type="" name="nombre" class="form-control" id="">
+                            <label for="" class="form-label">Nombres</label>
+                            <input type="" name="nombres" class="form-control" id="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Apellidos</label>
+                            <input type="" name="apellidos" class="form-control" id="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">DNI</label>
+                            <input type="" name="dni" class="form-control" id="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Teléfono</label>
+                            <input type="" name="telefono" class="form-control" id="">
                         </div>
                         <button type="submit" class="btn btn-primary">Nuevo</button>
                     </form>
@@ -53,20 +65,26 @@
                     <thead>
                         <tr align="center">
                             <th scope="col">Id</th>
-                            <th scope="col">Carrera</th>
+                            <th scope="col">Nombres</th>
+                            <th>Apellidos</th>
+                            <th>DNI</th>
+                            <th>Telefono</th>
                             <th>Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($carreras as $carrera)
+                        @foreach ($maestros as $maestro)
                             <tr align="center">
-                                <td>{{ $carrera->idcarrera }}</td>
-                                <td>{{ $carrera->nombre }}</td>
+                                <td>{{ $maestro->idmaestro }}</td>
+                                <td>{{ $maestro->nombres }}</td>
+                                <td>{{ $maestro->apellidos }}</td>
+                                <td>{{ $maestro->dni }}</td>
+                                <td>{{ $maestro->telefono }}</td>
                                 <td style="    display: flex; justify-content: center;">
                                     <a type="button" class="btn btn-warning" data-bs-toggle="modal"
                                         style="margin-right: 5px" data-bs-target="#exampleModal"
-                                        href='{{ route('carrera.edit', [$carrera->idcarrera]) }}'>Modificar</a>
-                                    <form action="{{ route('carrera.destroy', [$carrera->idcarrera]) }}"
+                                        href='{{ route('maestros.edit', [$maestro->idmaestro]) }}'>Modificar</a>
+                                    <form action="{{ route('maestros.destroy', [$maestro->idmaestro]) }}"
                                         method="post">
                                         @method("delete")
                                         @csrf

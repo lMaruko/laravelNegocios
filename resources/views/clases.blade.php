@@ -36,12 +36,16 @@
     <div class="container" style="padding-top: 20px">
         <div class="row">
             <div class="col col-3">
-                <H1 style="padding-top: 10px">Tabla Carreras</H1>
+                <H1 style="padding-top: 10px">Tabla Clases</H1>
                 <div style="padding-bottom: 30px">
-                    <form method="POST" action="{{ route('carrera.store') }}">
+                    <form method="POST" action="{{ route('clases.store') }}">
                         @csrf
                         <div class="mb-3">
-                            <label for="" class="form-label">Carrera</label>
+                            <label for="" class="form-label">ID Clase</label>
+                            <input type="" name="idclase" class="form-control" id="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Nombre Clase</label>
                             <input type="" name="nombre" class="form-control" id="">
                         </div>
                         <button type="submit" class="btn btn-primary">Nuevo</button>
@@ -53,21 +57,20 @@
                     <thead>
                         <tr align="center">
                             <th scope="col">Id</th>
-                            <th scope="col">Carrera</th>
+                            <th scope="col">Clase</th>
                             <th>Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($carreras as $carrera)
+                        @foreach ($clases as $clase)
                             <tr align="center">
-                                <td>{{ $carrera->idcarrera }}</td>
-                                <td>{{ $carrera->nombre }}</td>
+                                <td>{{ $clase->idclase }}</td>
+                                <td>{{ $clase->nombre }}</td>
                                 <td style="    display: flex; justify-content: center;">
                                     <a type="button" class="btn btn-warning" data-bs-toggle="modal"
                                         style="margin-right: 5px" data-bs-target="#exampleModal"
-                                        href='{{ route('carrera.edit', [$carrera->idcarrera]) }}'>Modificar</a>
-                                    <form action="{{ route('carrera.destroy', [$carrera->idcarrera]) }}"
-                                        method="post">
+                                        href='{{ route('clases.edit', [$clase->idclase]) }}'>Modificar</a>
+                                    <form action="{{ route('clases.destroy', [$clase->idclase]) }}" method="post">
                                         @method("delete")
                                         @csrf
                                         <button type="submit" class="btn btn btn-danger">Eliminar</button>

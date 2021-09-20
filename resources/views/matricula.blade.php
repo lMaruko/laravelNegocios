@@ -36,13 +36,17 @@
     <div class="container" style="padding-top: 20px">
         <div class="row">
             <div class="col col-3">
-                <H1 style="padding-top: 10px">Tabla Carreras</H1>
+                <H1 style="padding-top: 10px">Tabla Matrículas</H1>
                 <div style="padding-bottom: 30px">
-                    <form method="POST" action="{{ route('carrera.store') }}">
+                    <form method="POST" action="{{ route('matriculas.store') }}">
                         @csrf
                         <div class="mb-3">
-                            <label for="" class="form-label">Carrera</label>
-                            <input type="" name="nombre" class="form-control" id="">
+                            <label for="" class="form-label">ID Estudiante</label>
+                            <input type="" name="idestudiante" class="form-control" id="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">ID Sección</label>
+                            <input type="" name="idseccion" class="form-control" id="">
                         </div>
                         <button type="submit" class="btn btn-primary">Nuevo</button>
                     </form>
@@ -52,21 +56,23 @@
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr align="center">
-                            <th scope="col">Id</th>
-                            <th scope="col">Carrera</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">ID Estudiante</th>
+                            <th>ID Sección</th>
                             <th>Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($carreras as $carrera)
+                        @foreach ($matriculas as $matricula)
                             <tr align="center">
-                                <td>{{ $carrera->idcarrera }}</td>
-                                <td>{{ $carrera->nombre }}</td>
+                                <td>{{ $matricula->idmatricula }}</td>
+                                <td>{{ $matricula->idestudiante }}</td>
+                                <td>{{ $matricula->idseccion }}</td>
                                 <td style="    display: flex; justify-content: center;">
                                     <a type="button" class="btn btn-warning" data-bs-toggle="modal"
                                         style="margin-right: 5px" data-bs-target="#exampleModal"
-                                        href='{{ route('carrera.edit', [$carrera->idcarrera]) }}'>Modificar</a>
-                                    <form action="{{ route('carrera.destroy', [$carrera->idcarrera]) }}"
+                                        href='{{ route('matriculas.edit', [$matricula->idmatricula]) }}'>Modificar</a>
+                                    <form action="{{ route('matriculas.destroy', [$matricula->idmatricula]) }}"
                                         method="post">
                                         @method("delete")
                                         @csrf
