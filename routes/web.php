@@ -6,6 +6,7 @@ use App\Http\Controllers\EstudiantesController;
 use App\Http\Controllers\MaestrosController;
 use App\Http\Controllers\MatriculaController;
 use App\Http\Controllers\SeccionController;
+use App\Http\Controllers\TriggerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,8 +31,4 @@ Route::resource('maestros', MaestrosController::class);
 Route::resource('matriculas', MatriculaController::class);
 Route::resource('secciones', SeccionController::class);
 
-// Route::get('/clases', [ClasesController::class,'index'])->name('clases');
-// Route::get('/estudiantes', [EstudiantesController::class,'index'])->name('estudiantes');
-// Route::get('/maestros', [MaestrosController::class,'index'])->name('docentes');
-// Route::get('/matriculas', [MatriculaController::class,'index'])->name('matriculas');
-// Route::get('/secciones', [SeccionController::class,'index'])->name('secciones');
+Route::get('/triggerMaestro', [TriggerController::class,'maestro'] )->name('maestro.trigger');
