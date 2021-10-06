@@ -32,3 +32,8 @@ Route::resource('matriculas', MatriculaController::class);
 Route::resource('secciones', SeccionController::class);
 
 Route::get('/triggerMaestro', [TriggerController::class,'maestro'] )->name('maestro.trigger');
+Route::get('/triggerCarrera', [TriggerController::class,'carrera'] )->name('carrera.trigger');
+Route::get('/triggerClase', [TriggerController::class,'clase'] )->name('clase.trigger');
+Route::get('/triggerEstudiante', [TriggerController::class,'estudiante'] )->name('estudiante.trigger');
+Route::get('/triggerMatricula', [TriggerController::class,'matricula'] )->name('matricula.trigger');
+Route::get('/triggerSeccion', [TriggerController::class,'seccion'] )->name('seccion.trigger');

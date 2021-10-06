@@ -46,6 +46,8 @@
                         </div>
                         <button type="submit" class="btn btn-primary">Nuevo</button>
                     </form>
+                    <a type="button" class="btn btn-success" data-bs-toggle="modal" style="margin-top: 14px;"
+                        data-bs-target="#exampleModal" href='{{ route('carrera.trigger') }}'>Detalles de Creación</a>
                 </div>
             </div>
             <div class="col col-9">
